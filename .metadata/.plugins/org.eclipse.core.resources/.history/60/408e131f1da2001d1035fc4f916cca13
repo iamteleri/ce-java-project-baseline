@@ -1,0 +1,5 @@
+package com.teleri.technicalvalidation.model;
+
+public class Superhero {
+
+}

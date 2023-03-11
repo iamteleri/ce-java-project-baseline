@@ -1,0 +1,24 @@
+package com.teleri.usergenerator.service;
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import com.teleri.usergenerator.client.UserClient;
+import com.teleri.usergenerator.event.ProducerService;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class UserDataService {
+	
+	private final UserClient userClient;	
+	private final ProducerService producerService;
+	
+	@Scheduled(fixedRate = 360000)
+	public void getAndSendUserData() {
+		var userdata = userClient.getUserData().block();
+		producerService.sendMessage(userdata);
+	}
+	
+}

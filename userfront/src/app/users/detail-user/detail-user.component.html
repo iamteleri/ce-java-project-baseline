@@ -1,0 +1,28 @@
+<div class="row mt-5">
+
+        <div class="col-md-4 mx-auto">
+
+            <div *ngIf="user" class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{user.picture.large}} alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{user.name.first}} {{user.name.last}}</h5>
+                  <p class="card-text">{{user.location.street.name}} {{user.location.street.number}}, {{user.location.postcode}} {{user.location.city}}, {{user.location.country}} </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> <b>Usuario:</b> {{user.login.username}} </li>
+                  <li class="list-group-item"> <b>Mail:</b> {{user.email}} </li>
+                  <li class="list-group-item"> <b>Edad:</b> {{user.dob.age}} años</li>
+                  <li class="list-group-item"> <b>Teléfono: </b> {{user.cell}}</li>
+                </ul>
+                <div class="card-body">
+                  <button class="btn btn-outline-warning" routerLink="/edit/{{user.id}}"> Editar&nbsp;&nbsp;<i class="fa-solid fa-pen-to-square"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <button *ngIf="isAdmin" class="btn btn-outline-danger" (click)="delete(user.id)"> Eliminar&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></button>&nbsp;&nbsp;
+                </div>
+              </div>
+
+
+
+        </div>
+    
+</div>

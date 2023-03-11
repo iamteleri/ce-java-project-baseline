@@ -1,0 +1,7 @@
+server:
+  port: 8081
+spring:
+  kafka: 
+    topic: userdata
+    bootstrap-servers: broker:29092
+generateusers: true

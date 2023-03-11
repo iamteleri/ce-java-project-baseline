@@ -1,0 +1,107 @@
+<!-- <div class="row mt-5">
+
+    <div class="col-md-4 mx-auto">
+
+        <div *ngIf="user" class="card" style="width: 18rem;">
+            <img class="card-img-top" src={{user.picture.large}} alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{user.name.first}} {{user.name.last}}</h5>
+              <p class="card-text">{{user.location.street.name}} {{user.location.street.number}}, {{user.location.postcode}} {{user.location.city}}, {{user.location.country}} </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"> <b>Usuario:</b> 
+                <input> </input>
+                {{user.login.username}} </li>
+              <li class="list-group-item"> <b>Mail:</b> {{user.email}} </li>
+              <li class="list-group-item"> <b>Edad:</b> {{user.dob.age}} años</li>
+              <li class="list-group-item"> <b>Teléfono: </b> {{user.cell}}</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+
+
+
+    </div>
+
+</div> -->
+
+
+<div class="container" *ngIf="user">
+    <div class="row mt-5">
+        <div class="col-md-3 mx-auto">
+            <img class="card-img-top" src={{user.picture.large}} alt="Card image cap">
+        </div>
+        <div class="col-md-9 mx-auto">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                
+                <div class="form-group">
+                    <label for="username">Nombre de usuario</label>
+                    <input type="text" class="form-control" id="username" name="username"
+                    [(ngModel)]="user.login.username" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                    [(ngModel)]="user.name.first" required>
+                </div> 
+
+
+                <div class="form-group">
+                    <label for="lastname">Apellido</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname"
+                    [(ngModel)]="user.name.last" required>
+                </div>  <br>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="text" class="form-control" id="email" name="email"
+                    [(ngModel)]="user.email" required>
+                </div> <br>
+
+
+                <div class="form-group">
+                    <label for="streetname">Calle</label>
+                    <input type="text" class="form-control" id="streetname" name="streetname"
+                    [(ngModel)]="user.location.street.name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="streetnumber">Numero</label>
+                    <input type="text" class="form-control" id="streetnumber" name="streetnumber"
+                    [(ngModel)]="user.location.street.number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="postcode">Codigo postal</label>
+                    <input type="text" class="form-control" id="postcode" name="postcode"
+                    [(ngModel)]="user.location.postcode" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Ciudad</label>
+                    <input type="text" class="form-control" id="city" name="city"
+                    [(ngModel)]="user.location.city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Pais</label>
+                    <input type="text" class="form-control" id="country" name="country"
+                    [(ngModel)]="user.location.country" required>
+                </div> <br>
+
+      
+                <div class="form-group">
+                    <label for="cell">Telefono</label>
+                    <input type="text" class="form-control" id="cell" name="cell"
+                    [(ngModel)]="user.cell" required>
+                </div>
+                <br>
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

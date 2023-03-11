@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" style="margin-left: 1%">CE User app</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div *ngIf="isAdmin" class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" style="float: right">
+        <li  class="nav-item active">
+          <a class="nav-link" routerLink="/"> <i class="fa-solid fa-list"></i> Listado </a>
+        </li>
+        <li class="nav-item" style="cursor: pointer;">
+          <a class="nav-link" (click)="create()"> <i class="fa-solid fa-plus"></i> Nuevo Usuario</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div *ngIf="!isAdmin" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="float: right">
+          <li  class="nav-item active">        
+          </li>
+        </ul>
+      </div>
+
+  
+    <div *ngIf="isLogged">
+      <ul  class="navbar-nav ml-auto" style="float: right">
+        <li class="nav-item" style="cursor: pointer;">
+          <a class="nav-link" href="/" (click)="logOut()"> <i class="fa-sharp fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,13 @@
+server:
+  port: 8082
+spring:
+  kafka:
+    topic: userdata
+    bootstrap-servers: broker:29092
+  mongodb:
+    embedded:
+      version: 3.2.3
+  mvc.pathmatch.matching-strategy: ANT_PATH_MATCHER
+jwt:
+  secret: __quien__tiene__magia__no__necesita__trucos__
+  expiration: 3600
